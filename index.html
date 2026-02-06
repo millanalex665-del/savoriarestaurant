@@ -1,0 +1,127 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Savoria Restaurant - Fine Dining in Ibiza</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <style>
+        @import url('https://fonts.googleapis.com/css2?family=Playfair+Display:wght@400;700&family=Inter:wght@400;600&display=swap');
+        body { font-family: 'Inter', sans-serif; }
+        .font-serif { font-family: 'Playfair Display', serif; }
+    </style>
+</head>
+<!-- It introduces the restaurant, highlights key features, and showcases signature dishes. -->
+  <!--used Tailwind to create a modern, responsive design quickly without writing custom CSS -->
+<body class="bg-white">
+    <!-- Navigation -->
+    <nav class="bg-white shadow-md fixed w-full top-0 z-50">
+        <div class="max-w-7xl mx-auto px-4 py-5 flex justify-between items-center">
+            <a href="index.html" class="text-3xl font-serif text-amber-600">Savoria</a>
+            <div class="hidden md:flex space-x-8">
+                <a href="index.html" class="text-amber-600">Home</a>
+                <a href="menu.html" class="text-gray-700 hover:text-amber-600">Menu</a>
+                <a href="search.html" class="text-gray-700 hover:text-amber-600">🔍 Search</a>
+                <a href="booking.html" class="text-gray-700 hover:text-amber-600">Book Table</a>
+                <a href="about.html" class="text-gray-700 hover:text-amber-600">About</a>
+                <a href="contact.html" class="text-gray-700 hover:text-amber-600">Contact</a>
+            </div>
+        </div>
+    </nav>
+
+    <!-- The navigation bar is fixed at the top and allows users to move between pages like menu, booking, search, and contact.”-->
+    <!-- Hero Section grabs user attention using a full-screen image -->
+    <section class="relative h-screen pt-20">
+        <img src="https://images.unsplash.com/photo-1768777273143-570e6c7db344?w=1080" alt="Restaurant" class="w-full h-full object-cover absolute inset-0">
+        <div class="absolute inset-0 bg-black/50"></div>
+        <div class="relative h-full flex items-center justify-center text-center px-4">
+            <div>
+                <h1 class="text-6xl font-serif text-white mb-6">Welcome to Savoria</h1>
+                <p class="text-2xl text-white mb-8">Where culinary art meets exceptional dining</p>
+                <a href="booking.html" class="bg-amber-600 hover:bg-amber-700 text-white px-8 py-4 rounded-md inline-block">Reserve a Table</a>
+            </div>
+        </div>
+    </section>
+
+    <!-- Features  explains why customers should choose the restaurant-->
+    <section class="py-20 px-4 bg-white">
+        <div class="max-w-7xl mx-auto">
+            <h2 class="text-5xl font-serif text-center mb-16">Why Choose Savoria</h2>
+            <div class="grid md:grid-cols-3 gap-8">
+                <div class="text-center p-6">
+                    <div class="text-4xl mb-4">👨‍🍳</div>
+                    <h3 class="text-xl mb-2">Expert Chefs</h3>
+                    <p class="text-gray-600">Master chefs with 25+ years experience</p>
+                </div>
+                <div class="text-center p-6">
+                    <div class="text-4xl mb-4">🥗</div>
+                    <h3 class="text-xl mb-2">Fresh Daily</h3>
+                    <p class="text-gray-600">Ingredients sourced fresh every morning</p>
+                </div>
+                <div class="text-center p-6">
+                    <div class="text-4xl mb-4">🎉</div>
+                    <h3 class="text-xl mb-2">Private Events</h3>
+                    <p class="text-gray-600">Perfect venue for celebrations</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Signature Dishes displays popular dishes using cards with images, description, and prices -->
+    <section class="py-20 px-4 bg-gray-50">
+        <div class="max-w-7xl mx-auto">
+            <h2 class="text-5xl font-serif text-center mb-16">Signature Dishes</h2>
+            <div class="grid md:grid-cols-3 gap-8">
+                <div class="bg-white rounded-lg overflow-hidden shadow-lg">
+                    <img src="https://images.unsplash.com/photo-1705755402973-009b7877a0f9?w=400" alt="Steak" class="w-full h-64 object-cover">
+                    <div class="p-6">
+                        <h3 class="text-2xl font-serif mb-2">Prime Ribeye</h3>
+                        <p class="text-gray-600 mb-4">Premium aged beef with seasonal vegetables</p>
+                        <p class="text-amber-600 text-xl">€45</p>
+                    </div>
+                </div>
+                <div class="bg-white rounded-lg overflow-hidden shadow-lg">
+                    <img src="https://images.unsplash.com/photo-1751651054936-db23f5d67160?w=400" alt="Seafood" class="w-full h-64 object-cover">
+                    <div class="p-6">
+                        <h3 class="text-2xl font-serif mb-2">Ocean's Bounty</h3>
+                        <p class="text-gray-600 mb-4">Fresh lobster, prawns, and grilled fish</p>
+                        <p class="text-amber-600 text-xl">€52</p>
+                    </div>
+                </div>
+                <div class="bg-white rounded-lg overflow-hidden shadow-lg">
+                    <img src="https://images.unsplash.com/photo-1609166639722-47053ca112ea?w=400" alt="Pasta" class="w-full h-64 object-cover">
+                    <div class="p-6">
+                        <h3 class="text-2xl font-serif mb-2">Truffle Pasta</h3>
+                        <p class="text-gray-600 mb-4">Handmade pasta with black truffle</p>
+                        <p class="text-amber-600 text-xl">€38</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Footer provides contact information and quick navigation links-->
+    <footer class="bg-gray-900 text-white py-12">
+        <div class="max-w-7xl mx-auto px-4 grid md:grid-cols-3 gap-8">
+            <div>
+                <h3 class="text-2xl font-serif text-amber-500 mb-4">Savoria</h3>
+                <p class="text-gray-400">Experience fine dining at its best</p>
+            </div>
+            <div>
+                <h4 class="text-lg mb-4">Quick Links</h4>
+                <div class="space-y-2">
+                    <a href="menu.html" class="block text-gray-400 hover:text-amber-500">Menu</a>
+                    <a href="booking.html" class="block text-gray-400 hover:text-amber-500">Book Table</a>
+                    <a href="about.html" class="block text-gray-400 hover:text-amber-500">About</a>
+                </div>
+            </div>
+            <div>
+                <h4 class="text-lg mb-4">Contact</h4>
+                <p class="text-gray-400">📞 +34 971 123 456</p>
+                <p class="text-gray-400">✉️ info@savoria.com</p>
+                <p class="text-gray-400">📍 Calle Santa Eulalia 94, Ibiza</p>
+            </div>
+        </div>
+    </footer>
+</body>
+</html>

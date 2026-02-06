@@ -1,0 +1,136 @@
+<!DOCTYPE html>
+<html lang="en">
+    <!-- The head section includes metadata, responsive viewport settings, Tailwind CSS, and Google Fonts -->
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>About Us - Savoria Restaurant</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <style>
+        @import url('https://fonts.googleapis.com/css2?family=Playfair+Display:wght@400;700&family=Inter:wght@400;600&display=swap');
+        body { font-family: 'Inter', sans-serif; }
+        .font-serif { font-family: 'Playfair Display', serif; }
+    </style>
+</head>
+<body class="bg-white">
+     <!-- Navigation -->
+    <nav class="bg-white shadow-md fixed w-full top-0 z-50">
+        <div class="max-w-7xl mx-auto px-4 py-5 flex justify-between items-center">
+            <a href="index.html" class="text-3xl font-serif text-amber-600">Savoria</a>
+            <div class="hidden md:flex space-x-8">
+                <a href="index.html" class="text-gray-700 hover:text-amber-600">Home</a>
+                <a href="menu.html" class="text-gray-700 hover:text-amber-600">Menu</a>
+                <a href="search.html" class="text-gray-700 hover:text-amber-600">🔍 Search</a>
+                <a href="booking.html" class="text-gray-700 hover:text-amber-600">Book Table</a>
+                <a href="about.html" class="text-amber-600">About</a>
+                <a href="contact.html" class="text-gray-700 hover:text-amber-600">Contact</a>
+            </div>
+        </div>
+    </nav>
+
+    <!-- Hero -->
+    <section class="relative h-96 pt-20">
+        <img src="https://images.unsplash.com/photo-1658921034679-0d9e999ddc43?w=1080" alt="Chef" class="w-full h-full object-cover absolute inset-0">
+        <div class="absolute inset-0 bg-black/50"></div>
+        <div class="relative h-full flex items-center justify-center">
+            <h1 class="text-6xl font-serif text-white">Our Story</h1>
+        </div>
+    </section>
+
+    <!-- Story explains the background and vision of the restaurant -->
+    <section class="py-20 px-4">
+        <div class="max-w-4xl mx-auto text-center">
+            <h2 class="text-4xl font-serif mb-6">Welcome to Savoria</h2>
+            <p class="text-lg text-gray-700 mb-4">
+                Founded in 2015, Savoria was born from a dream to create a dining experience that celebrates 
+                culinary art while honoring traditional craftsmanship.
+            </p>
+            <p class="text-lg text-gray-700">
+                We work closely with local farmers and suppliers to source the finest seasonal ingredients, 
+                ensuring every dish reflects the best of what nature offers.
+            </p>
+        </div>
+    </section>
+
+    <!-- Values highlights the core values using cards and icons.” -->
+    <section class="py-20 px-4 bg-gray-50">
+        <div class="max-w-7xl mx-auto">
+            <h2 class="text-4xl font-serif text-center mb-12">Our Values</h2>
+            <div class="grid md:grid-cols-3 gap-8">
+                <div class="bg-white p-8 rounded-lg text-center">
+                    <div class="text-4xl mb-4">❤️</div>
+                    <h3 class="text-xl font-serif mb-2">Passion</h3>
+                    <p class="text-gray-600">Every dish crafted with love and dedication</p>
+                </div>
+                <div class="bg-white p-8 rounded-lg text-center">
+                    <div class="text-4xl mb-4">🌿</div>
+                    <h3 class="text-xl font-serif mb-2">Sustainability</h3>
+                    <p class="text-gray-600">Locally sourced, sustainable ingredients</p>
+                </div>
+                <div class="bg-white p-8 rounded-lg text-center">
+                    <div class="text-4xl mb-4">⭐</div>
+                    <h3 class="text-xl font-serif mb-2">Excellence</h3>
+                    <p class="text-gray-600">Highest quality in food and service</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Team  introduces key team members using a card-based layout -->
+    <section class="py-20 px-4">
+        <div class="max-w-7xl mx-auto">
+            <h2 class="text-4xl font-serif text-center mb-12">Meet Our Team</h2>
+            <div class="grid md:grid-cols-3 gap-8">
+                <div class="bg-gray-50 rounded-lg overflow-hidden">
+                    <div class="h-64 bg-gradient-to-br from-amber-100 to-amber-200"></div>
+                    <div class="p-6 text-center">
+                        <h3 class="text-xl font-serif mb-1">Chef Alessandro Romano</h3>
+                        <p class="text-amber-600 mb-2">Executive Chef</p>
+                        <p class="text-gray-600">25 years of Michelin experience</p>
+                    </div>
+                </div>
+                <div class="bg-gray-50 rounded-lg overflow-hidden">
+                    <div class="h-64 bg-gradient-to-br from-amber-100 to-amber-200"></div>
+                    <div class="p-6 text-center">
+                        <h3 class="text-xl font-serif mb-1">Maria Santos</h3>
+                        <p class="text-amber-600 mb-2">Pastry Chef</p>
+                        <p class="text-gray-600">Award-winning dessert artist</p>
+                    </div>
+                </div>
+                <div class="bg-gray-50 rounded-lg overflow-hidden">
+                    <div class="h-64 bg-gradient-to-br from-amber-100 to-amber-200"></div>
+                    <div class="p-6 text-center">
+                        <h3 class="text-xl font-serif mb-1">David Chen</h3>
+                        <p class="text-amber-600 mb-2">Sous Chef</p>
+                        <p class="text-gray-600">Expert in Asian-fusion cuisine</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Footer  provides contact information and quick navigation links-->
+    <footer class="bg-gray-900 text-white py-12">
+        <div class="max-w-7xl mx-auto px-4 grid md:grid-cols-3 gap-8">
+            <div>
+                <h3 class="text-2xl font-serif text-amber-500 mb-4">Savoria</h3>
+                <p class="text-gray-400">Experience fine dining at its best</p>
+            </div>
+            <div>
+                <h4 class="text-lg mb-4">Quick Links</h4>
+                <div class="space-y-2">
+                    <a href="menu.html" class="block text-gray-400 hover:text-amber-500">Menu</a>
+                    <a href="booking.html" class="block text-gray-400 hover:text-amber-500">Book Table</a>
+                    <a href="about.html" class="block text-gray-400 hover:text-amber-500">About</a>
+                </div>
+            </div>
+            <div>
+                <h4 class="text-lg mb-4">Contact</h4>
+                <p class="text-gray-400">📞 +34 971 123 456</p>
+                <p class="text-gray-400">✉️ info@savoria.com</p>
+                <p class="text-gray-400">📍 Calle Santa Eulalia 94, Ibiza</p>
+            </div>
+        </div>
+    </footer>
+</body>
+</html>
