@@ -1,0 +1,263 @@
+<!DOCTYPE html>
+<html lang="en">
+ <!-- It allows users to search dishes and filter them by category using an API.-->
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Search - Savoria Restaurant</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <style>
+        @import url('https://fonts.googleapis.com/css2?family=Playfair+Display:wght@400;700&family=Inter:wght@400;600&display=swap');
+        body { font-family: 'Inter', sans-serif; }
+        .font-serif { font-family: 'Playfair Display', serif; }
+        .spinner { border: 3px solid #f3f3f3; border-top: 3px solid #d97706; border-radius: 50%; width: 40px; height: 40px; animation: spin 1s linear infinite; }
+        @keyframes spin { 0% { transform: rotate(0deg); } 100% { transform: rotate(360deg); } }
+    </style>
+</head>
+<body class="bg-white">
+    <!-- Navigation -->
+    <nav class="bg-white shadow-md fixed w-full top-0 z-50">
+        <div class="max-w-7xl mx-auto px-4 py-5 flex justify-between items-center">
+            <a href="index.html" class="text-3xl font-serif text-amber-600">Savoria</a>
+            <div class="hidden md:flex space-x-8">
+                <a href="index.html" class="text-gray-700 hover:text-amber-600">Home</a>
+                <a href="menu.html" class="text-gray-700 hover:text-amber-600">Menu</a>
+                <a href="booking.html" class="text-gray-700 hover:text-amber-600">Book Table</a>
+                <a href="about.html" class="text-gray-700 hover:text-amber-600">About</a>
+                <a href="contact.html" class="text-gray-700 hover:text-amber-600">Contact</a>
+            </div>
+        </div>
+    </nav>
+
+    <!-- Search Section -->
+    <section class="pt-32 pb-20 px-4 min-h-screen bg-gray-50">
+        <div class="max-w-4xl mx-auto">
+            <!-- Search Header -->
+            <div class="text-center mb-12">
+                <h1 class="text-5xl font-serif mb-4">Search Menu</h1>
+                <p class="text-gray-600">Find your favorite dishes</p>
+            </div>
+
+            <!-- Search Bar -->
+            <div class="mb-8">
+                <div class="relative">
+                    <input 
+                        type="text" 
+                        id="searchInput" 
+                        placeholder="Search for dishes, categories..." 
+                        class="w-full px-6 py-4 text-lg border-2 border-gray-300 rounded-lg focus:border-amber-500 focus:outline-none"
+                    >
+                    <button id="searchBtn" class="absolute right-2 top-2 bg-amber-600 hover:bg-amber-700 text-white px-6 py-2 rounded-lg">
+                        🔍 Search
+                    </button>
+                </div>
+            </div>
+
+            <!-- Category Filters -->
+            <div class="flex flex-wrap gap-3 mb-8 justify-center">
+                <button onclick="filterCategory('All')" class="px-4 py-2 bg-amber-600 text-white rounded-full hover:bg-amber-700">
+                    All Items
+                </button>
+                <button onclick="filterCategory('Main')" class="px-4 py-2 bg-gray-200 hover:bg-gray-300 rounded-full">
+                    Mains
+                </button>
+                <button onclick="filterCategory('Seafood')" class="px-4 py-2 bg-gray-200 hover:bg-gray-300 rounded-full">
+                    Seafood
+                </button>
+                <button onclick="filterCategory('Appetizer')" class="px-4 py-2 bg-gray-200 hover:bg-gray-300 rounded-full">
+                    Appetizers
+                </button>
+                <button onclick="filterCategory('Dessert')" class="px-4 py-2 bg-gray-200 hover:bg-gray-300 rounded-full">
+                    Desserts
+                </button>
+            </div>
+
+            <!-- API Status Indicator -->
+            <div id="apiStatus" class="hidden bg-blue-100 border-l-4 border-blue-500 p-4 mb-6 rounded">
+                <p class="text-blue-700">
+                    <span class="font-semibold">🔄 API Status:</span> 
+                    <span id="apiMessage">Ready</span>
+                </p>
+            </div>
+
+            <!-- Loading Spinner -->
+            <div id="loading" class="hidden text-center py-12">
+                <div class="spinner mx-auto"></div>
+                <p class="mt-4 text-gray-600">Searching database...</p>
+            </div>
+
+            <!-- Results Count -->
+            <div id="resultsInfo" class="hidden mb-4">
+                <p class="text-gray-600">
+                    Found <span id="resultCount" class="font-semibold text-amber-600">0</span> results
+                    <span id="searchTerm" class="text-gray-800"></span>
+                </p>
+            </div>
+
+            <!-- Results Container -->
+            <div id="results" class="grid md:grid-cols-2 gap-6">
+                <!-- Results will appear here -->
+            </div>
+
+            <!-- No Results -->
+            <div id="noResults" class="hidden text-center py-12">
+                <div class="text-6xl mb-4">🍽️</div>
+                <h3 class="text-2xl font-serif mb-2">No dishes found</h3>
+                <p class="text-gray-600">Try searching for something else</p>
+            </div>
+        </div>
+    </section>
+
+    <!-- Footer -->
+    <footer class="bg-gray-900 text-white py-12">
+        <div class="max-w-7xl mx-auto px-4 grid md:grid-cols-3 gap-8">
+            <div>
+                <h3 class="text-2xl font-serif text-amber-500 mb-4">Savoria</h3>
+                <p class="text-gray-400">Experience fine dining at its best</p>
+            </div>
+            <div>
+                <h4 class="text-lg mb-4">Quick Links</h4>
+                <div class="space-y-2">
+                    <a href="menu.html" class="block text-gray-400 hover:text-amber-500">Menu</a>
+                    <a href="booking.html" class="block text-gray-400 hover:text-amber-500">Book Table</a>
+                    <a href="about.html" class="block text-gray-400 hover:text-amber-500">About</a>
+                </div>
+            </div>
+            <div>
+                <h4 class="text-lg mb-4">Contact</h4>
+                <p class="text-gray-400">📞 +34 971 123 456</p>
+                <p class="text-gray-400">✉️ info@savoria.com</p>
+                <p class="text-gray-400">📍 Calle Santa Eulalia 94, Ibiza</p>
+            </div>
+        </div>
+    </footer>
+
+    <!-- Load API -->
+    <script src="api.js"></script>
+    
+    <script>
+        const searchInput = document.getElementById('searchInput');
+        const searchBtn = document.getElementById('searchBtn');
+        const loading = document.getElementById('loading');
+        const results = document.getElementById('results');
+        const noResults = document.getElementById('noResults');
+        const resultsInfo = document.getElementById('resultsInfo');
+        const resultCount = document.getElementById('resultCount');
+        const searchTerm = document.getElementById('searchTerm');
+        const apiStatus = document.getElementById('apiStatus');
+        const apiMessage = document.getElementById('apiMessage');
+
+        // Show API status
+        function showAPIStatus(message, show = true) {
+            apiStatus.classList.toggle('hidden', !show);
+            apiMessage.textContent = message;
+        }
+
+        // Display search results
+        function displayResults(items, query = '') {
+            results.innerHTML = '';
+            
+            if (items.length === 0) {
+                noResults.classList.remove('hidden');
+                resultsInfo.classList.add('hidden');
+                return;
+            }
+
+            noResults.classList.add('hidden');
+            resultsInfo.classList.remove('hidden');
+            resultCount.textContent = items.length;
+            searchTerm.textContent = query ? `for "${query}"` : '';
+
+            items.forEach(item => {
+                const card = `
+                    <div class="bg-white rounded-lg shadow-lg p-6 hover:shadow-xl transition">
+                        <div class="flex justify-between items-start mb-2">
+                            <h3 class="text-xl font-serif">${item.name}</h3>
+                            <span class="text-amber-600 font-semibold text-lg">€${item.price}</span>
+                        </div>
+                        <span class="inline-block px-3 py-1 bg-amber-100 text-amber-700 rounded-full text-sm mb-2">
+                            ${item.category}
+                        </span>
+                        <p class="text-gray-600">${item.description}</p>
+                    </div>
+                `;
+                results.innerHTML += card;
+            });
+        }
+
+        // Perform search via API
+        async function performSearch() {
+            const query = searchInput.value.trim();
+            
+            if (query.length < 2) {
+                alert('Please enter at least 2 characters');
+                return;
+            }
+
+            // Show loading
+            loading.classList.remove('hidden');
+            results.innerHTML = '';
+            noResults.classList.add('hidden');
+            resultsInfo.classList.add('hidden');
+            showAPIStatus('Sending request to API...');
+
+            try {
+                // Call API
+                const data = await window.RestaurantAPI.search(query);
+                
+                // Hide loading
+                loading.classList.add('hidden');
+                showAPIStatus(`API returned ${data.length} results`, true);
+                
+                // Display results
+                displayResults(data, query);
+                
+                // Hide status after 3 seconds
+                setTimeout(() => showAPIStatus('', false), 3000);
+                
+            } catch (error) {
+                loading.classList.add('hidden');
+                showAPIStatus('API Error: ' + error.message);
+                alert('Search failed. Please try again.');
+            }
+        }
+
+        // Filter by category
+        async function filterCategory(category) {
+            loading.classList.remove('hidden');
+            results.innerHTML = '';
+            noResults.classList.add('hidden');
+            showAPIStatus(`Fetching ${category} items from API...`);
+
+            try {
+                let data;
+                if (category === 'All') {
+                    data = await window.RestaurantAPI.getAllItems();
+                } else {
+                    data = await window.RestaurantAPI.getByCategory(category);
+                }
+                
+                loading.classList.add('hidden');
+                showAPIStatus(`API loaded ${data.length} items`, true);
+                displayResults(data);
+                setTimeout(() => showAPIStatus('', false), 3000);
+                
+            } catch (error) {
+                loading.classList.add('hidden');
+                showAPIStatus('API Error: ' + error.message);
+            }
+        }
+
+        // Search button click
+        searchBtn.addEventListener('click', performSearch);
+
+        // Enter key press
+        searchInput.addEventListener('keypress', (e) => {
+            if (e.key === 'Enter') performSearch();
+        });
+
+        // Load all items on page load
+        window.addEventListener('load', () => filterCategory('All'));
+    </script>
+</body>
+</html>
